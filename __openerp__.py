@@ -28,9 +28,9 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/templates.xml',
+        'views/session_workflow.xml',
         'views/openacademy.xml',
         'views/partner.xml',
-        'views/session_workflow.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

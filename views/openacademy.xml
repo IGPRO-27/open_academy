@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
   <data>
-  
+
     <record model="ir.ui.view" id="course_form_view">
       <field name="name">course.form</field>
       <field name="model">openacademy.course</field>
@@ -10,7 +10,7 @@
           <sheet>
             <group>
               <field name="name"/>
-	      <field name="responsible_id"/>				  
+	      <field name="responsible_id"/>
 	    </group>
 	    <notebook>
 	      <page string="Description">
@@ -28,7 +28,7 @@
 		this is a coment
 	      </page>
 	    </notebook>
-          </sheet> 
+          </sheet>
         </form>
       </field>
     </record>
@@ -78,7 +78,7 @@
         </p>
       </field>
     </record>
-    
+
     <!-- top level menu: no parent -->
     <menuitem id="main_openacademy_menu" name="Open Academy"/>
     <!-- A first level in the left side menu is needed
@@ -174,7 +174,7 @@
         </gantt>
       </field>
     </record>
-	
+
     <record model="ir.ui.view" id="openacademy_session_graph_view">
       <field name="name">openacademy.session.graph</field>
       <field name="model">openacademy.session</field>
@@ -239,10 +239,39 @@
       <field name="view_type">form</field>
       <field name="view_mode">tree,form,calendar,graph,gantt,kanban</field>
     </record>
-    
+
     <menuitem id="session_menu" name="Sessions"
               parent="openacademy_menu"
               action="session_list_action"/>
-    
+
+    <record model="ir.ui.view" id="wizard_form_view">
+      <field name="name">wizard.form</field>
+      <field name="model">openacademy.wizard</field>
+      <field name="arch" type="xml">
+        <form string="Add Attendees">
+          <group>
+            <field name="session_ids"/>
+            <field name="attendee_ids"/>
+          </group>
+
+	  <footer>
+            <button name="subscribe" type="object"
+                    string="Subscribe" class="oe_highlight"/>
+            or
+            <button special="cancel" string="Cancel"/>
+	  </footer>
+
+        </form>
+      </field>
+    </record>
+
+    <act_window id="launch_session_wizard"
+                name="Add Attendees"
+                src_model="openacademy.session"
+                res_model="openacademy.wizard"
+                view_mode="form"
+                target="new"
+                key2="client_action_multi"/>
+
   </data>
 </openerp>
