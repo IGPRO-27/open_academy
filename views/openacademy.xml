@@ -67,9 +67,6 @@
         that is an action opening a view or a set of views
     -->
 
-
-
-
     <record model="ir.actions.act_window" id="course_list_action">
       <field name="name">Courses</field>
       <field name="res_model">openacademy.course</field>
@@ -97,24 +94,24 @@
          action="openacademy.course_list_action"
          It is not required when it is the same module -->
 
-
     <record model="ir.ui.view" id="session_form_view">
       <field name="name">session.form</field>
       <field name="model">openacademy.session</field>
       <field name="arch" type="xml">
         <form string="Session Form">
+
           <header>
-            <button name="action_draft" type="workflow"
+            <button name="draft" type="workflow"
                     string="Reset to draft"
                     states="confirmed,done"/>
-            <button name="action_confirm" type="workflow"
+            <button name="confirm" type="workflow"
                     string="Confirm" states="draft"
                     class="oe_highlight"/>
-            <button name="action_done" type="workflow"
+            <button name="done" type="workflow"
                     string="Mark as done" states="confirmed"
                     class="oe_highlight"/>
             <field name="state" widget="statusbar"/>
-          </header>
+	  </header>
 
           <sheet>
             <group>

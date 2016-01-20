@@ -80,17 +80,14 @@ class Session(models.Model):
     @api.multi
     def action_draft(self):
         self.state = 'draft'
-        print "Rani DRAFFFT"
 
     @api.multi
     def action_confirm(self):
         self.state = 'confirmed'
-        print "CONFIRMEEED"
 
     @api.multi
     def action_done(self):
         self.state = 'done'
-        print "DOOOONE"
 
     @api.depends('seats', 'attendee_ids')
     def _taken_seats(self):
